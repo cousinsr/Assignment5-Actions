@@ -12,7 +12,6 @@
 
 
 import math
-import sys
 
 
 def firstrun():
