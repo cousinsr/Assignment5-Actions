@@ -48,7 +48,7 @@ class TestCase(unittest.TestCase):
         outputArea = task.circleArea(inputRadius)
 
         # Assert expectations after the function call.
-        self.assertIsNone(None, outputArea)
+        self.assertIsNone(outputArea)
 
     # Test case 3 for circleArea() function
     # Description:
@@ -77,6 +77,78 @@ class TestCase(unittest.TestCase):
 
         # Assert expectations after the function call.
         self.assertEqual(expectedArea, outputArea)
+
+    # Test case 1 for listFirstLast() function
+    # Description:
+    # Check that listFirstLast() returns expected output when the input list is empty.
+    def test_listFirstLast_case1(self):
+        # Initialize the test data.
+        inputList = []
+
+        # Call the function under test.
+        outputDataContainer = task.listFirstLast(inputList)
+
+        # Assert expectations after the function call.
+        self.assertIsNone(outputDataContainer)
+
+    # Test case 2 for listFirstLast() function
+    # Description:
+    # Check that listFirstLast() returns expected output when the input list contains one element.
+    def test_listFirstLast_case2(self):
+        # Initialize the test data.
+        inputList = [7]
+        expectedOutput = (7, 7)
+
+        # Call the function under test.
+        outputDataContainer = task.listFirstLast(inputList)
+
+        # Assert expectations after the function call.
+        self.assertEqual(expectedOutput, outputDataContainer)
+
+    # Test case 3 for listFirstLast() function
+    # Description:
+    # Check that listFirstLast() returns expected output when the input list contains two unique elements.
+    def test_listFirstLast_case3(self):
+        # Initialize the test data.
+        inputList = [7, 12]
+        expectedOutput = (7, 12)
+
+        # Call the function under test.
+        outputDataContainer = task.listFirstLast(inputList)
+
+        # Assert expectations after the function call.
+        self.assertEqual(expectedOutput, outputDataContainer)
+
+
+    # Test case 4 for listFirstLast() function
+    # Description:
+    # Check that listFirstLast() returns expected output when the input list contains eleven unique elements.
+    def test_listFirstLast_case4(self):
+        # Initialize the test data.
+        inputList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        expectedOutput = (0, 10)
+
+        # Call the function under test.
+        outputDataContainer = task.listFirstLast(inputList)
+
+        # Assert expectations after the function call.
+        self.assertEqual(expectedOutput, outputDataContainer)
+
+
+    # Test case 5 for listFirstLast() function
+    # Description:
+    # Check that listFirstLast() returns expected output when the input list contains 3 unique elements that
+    # are a mixture of integers and strings.
+    def test_listFirstLast_case5(self):
+        # Initialize the test data.
+        inputList = [0, 1, "third element"]
+        expectedOutput = (0, "third element")
+
+        # Call the function under test.
+        outputDataContainer = task.listFirstLast(inputList)
+
+        # Assert expectations after the function call.
+        self.assertEqual(expectedOutput, outputDataContainer)
 
 
 if __name__ == '__main__':

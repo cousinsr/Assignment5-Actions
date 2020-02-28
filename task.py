@@ -24,8 +24,20 @@ def firstrun():
 def circleArea(radius):
     # Ensure that the input radius is 0 or greater.
     if radius < 0:
-        print("The radius must be 0 or greater.")
+        print("The input radius must be 0 or greater.")
         return None
 
     # Calculate and return the area of the circle for the provided radius.
     return math.pi * math.pow(radius, 2)
+
+
+# This function takes as input a list and returns in a tuple the first and last element in the list.
+# This function expects that a list is provided an input.
+def listFirstLast(list):
+    # Ensure that the input list has a length of 1 or greater.
+    if len(list) < 1:
+        print("The input list must contain 1 or more elements.")
+        return None
+
+    # Return the first and last elements of the list in a tuple.
+    return list[0], list[len(list) - 1]
