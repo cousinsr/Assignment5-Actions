@@ -119,7 +119,6 @@ class TestCase(unittest.TestCase):
         # Assert expectations after the function call.
         self.assertEqual(expectedOutput, outputDataContainer)
 
-
     # Test case 4 for listFirstLast() function
     # Description:
     # Check that listFirstLast() returns expected output when the input list contains eleven unique elements.
@@ -133,7 +132,6 @@ class TestCase(unittest.TestCase):
 
         # Assert expectations after the function call.
         self.assertEqual(expectedOutput, outputDataContainer)
-
 
     # Test case 5 for listFirstLast() function
     # Description:
