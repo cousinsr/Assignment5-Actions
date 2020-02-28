@@ -12,6 +12,7 @@
 
 
 import math
+import datetime
 
 
 def firstrun():
@@ -41,3 +42,18 @@ def listFirstLast(list):
 
     # Return the first and last elements of the list in a tuple.
     return list[0], list[len(list) - 1]
+
+
+# This function takes as input two dates and returns the number of days between the two dates.
+# This function expects that each input date is of type datetime.date. The scenario of mixed inputs of type
+# datetime.date and datetime.datetime is not supported or gracefully blocked by this function.
+# https://docs.python.org/3.6/library/datetime.html#datetime.date
+def daysBetween(startDate, endDate):
+    # Ensure that both inputs are of datetime.date format.
+    if isinstance(startDate, datetime.date) is False or isinstance(endDate, datetime.date) is False:
+        print("Both inputs must have datetime.date format.")
+        return None
+
+    # Calculate and return the number of days between the two input dates.
+    days = endDate - startDate
+    return days.days

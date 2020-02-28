@@ -11,6 +11,7 @@
 
 import unittest
 import math
+import datetime
 import task
 
 
@@ -147,6 +148,78 @@ class TestCase(unittest.TestCase):
 
         # Assert expectations after the function call.
         self.assertEqual(expectedOutput, outputDataContainer)
+
+    # Test case 1 for daysBetween() function
+    # Description:
+    # Check that daysBetween() returns expected output when an input is not of type datetime.date.
+    def test_daysBetween_case1(self):
+        # Initialize the test data.
+        date1 = datetime.date(2020, 2, 27)
+        date2 = "more junk"
+
+        # Call the function under test.
+        daysOutput = task.daysBetween(date1, date2)
+
+        # Assert expectations after the function call.
+        self.assertIsNone(daysOutput)
+
+    # Test case 2 for daysBetween() function
+    # Description:
+    # Check that daysBetween() returns expected output when the input dates are the same date.
+    def test_daysBetween_case2(self):
+        # Initialize the test data.
+        date1 = datetime.date(2020, 2, 28)
+        date2 = datetime.date(2020, 2, 28)
+
+        # Call the function under test.
+        daysOutput = task.daysBetween(date1, date2)
+
+        # Assert expectations after the function call.
+        self.assertEqual(0, daysOutput)
+
+    # Test case 3 for daysBetween() function
+    # Description:
+    # Check that daysBetween() returns expected output when the input dates are the consecutive.
+    def test_daysBetween_case3(self):
+        # Initialize the test data.
+        date1 = datetime.date(2020, 2, 27)
+        date2 = datetime.date(2020, 2, 28)
+
+        # Call the function under test.
+        daysOutput = task.daysBetween(date1, date2)
+
+        # Assert expectations after the function call.
+        self.assertEqual(1, daysOutput)
+
+    # Test case 4 for daysBetween() function
+    # Description:
+    # Check that daysBetween() returns expected output when the first input date is later than the second
+    # input date.
+    def test_daysBetween_case4(self):
+        # Initialize the test data.
+        date1 = datetime.date(2020, 2, 27)
+        date2 = datetime.date(2020, 2, 17)
+
+        # Call the function under test.
+        daysOutput = task.daysBetween(date1, date2)
+
+        # Assert expectations after the function call.
+        self.assertEqual(-10, daysOutput)
+
+    # Test case 5 for daysBetween() function
+    # Description:
+    # Check that daysBetween() returns expected output when the second input date is a special leap year day
+    # in February 2020.
+    def test_daysBetween_case5(self):
+        # Initialize the test data.
+        date1 = datetime.date(2020, 2, 27)
+        date2 = datetime.date(2020, 2, 29)
+
+        # Call the function under test.
+        daysOutput = task.daysBetween(date1, date2)
+
+        # Assert expectations after the function call.
+        self.assertEqual(2, daysOutput)
 
 
 if __name__ == '__main__':
